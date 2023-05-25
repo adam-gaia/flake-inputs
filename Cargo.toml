@@ -3,12 +3,12 @@ name = "flake-inputs"
 version = "0.1.0"
 edition = "2021"
 authors = ["Adam Gaia"]
-description = "Parse flake lockfiles"
+description = "Parse flake metadata"
 license-file = "LICENSE"
 readme = "README.md"
-documentation = "https://github.com/adam-gaia/flake-inputs"
-repository = "https://github.com/adam-gaia/flake-inputs"
-homepage = "https://github.com/adam-gaia/flake-inputs"
+documentation = "https://github.com/adam-gaia/flake-input-tools"
+repository = "https://github.com/adam-gaia/flake-input-tools"
+homepage = "https://github.com/adam-gaia/flake-input-tools"
 
 [dependencies]
 anyhow = "1.0.70"
