@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+NAME=""
+if [[ -z "${1+set}" ]]; then
+	# No input arg given
+	NAME="$(nix flake metadata --json | flake-inputs | fzf -1)"
+else
+	NAME="$(nix flake metadata --json | flake-inputs lookup "${1}")"
+fi
+
+if [[ -n "${NAME}" ]]; then
+	nix flake update "${NAME}"
+else
+	echo "No input found" >&2
+fi

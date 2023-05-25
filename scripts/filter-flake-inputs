@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+nix flake metadata --json | flake-inputs "${@}" | fzf -1
