@@ -37,7 +37,7 @@ struct Node {
 
 #[derive(Debug, Serialize, Deserialize)]
 struct Locks {
-    nodes: serde_json::Map<String, Node>,
+    nodes: serde_json::Map<String, serde_json::Value>,
     root: String,
     version: u8,
 }
@@ -70,27 +70,15 @@ impl FlakeInputs {
     }
 
     fn print_names(&self) {
-        for input_name in self.locks.nodes.keys() {
-            println!("{}", input_name);
-        }
+        todo!();
     }
 
     fn print_urls(&self) -> Result<()> {
-        for input_name in self.locks.nodes.keys() {
-            let input = self.locks.nodes.get(input_name).unwrap();
-
-            let url = todo!("Need to reconstruct the url from the node's input and locked fields");
-
-            println!("{}", url);
-        }
-        Ok(())
+        todo!("Need to reconstruct the url from the node's input and locked fields");
     }
 
     fn print_names_and_urls(&self) {
-        for input_name in self.locks.nodes.keys() {
-            todo!("get url like in get_url()");
-            println!("{}: {}", input_name, url);
-        }
+        todo!("get url like in get_url()");
     }
 }
 
@@ -126,13 +114,7 @@ fn main() -> Result<()> {
                         inputs.print_urls()?;
                     }
                     Command::Lookup { name } => {
-                        let Some(input) = inputs.locks.nodes.get(&name) else {
-                            bail!("Unable to find input {}", name);
-                        };
-                        let Some(url) = input.get("url") else {
-                            bail!("Unable to get url for input {}", name);
-                        };
-                        println!("{}", url);
+                        todo!()
                     }
                 },
                 None => {
